@@ -1,8 +1,4 @@
 vehicle_param {
-  brand: LINCOLN_MKZ
-  vehicle_id {
-    other_unique_id: "mkz7"
-  }
   front_edge_to_center: 3.705
   back_edge_to_center: 0.995
   left_edge_to_center: 1.03
@@ -19,7 +15,4 @@ vehicle_param {
   steer_ratio: 11.4213198
   wheel_base: 2.837007
   wheel_rolling_radius: 0.33
-  
-  brake_deadzone: 15.5
-  throttle_deadzone: 18.0
 }
