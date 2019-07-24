@@ -4,15 +4,15 @@ header:
     secs: 0
     nsecs: 0
   frame_id: velodyne128
-child_frame_id: front_6mm
+child_frame_id: radar_front
 transform:
   translation:
-    x: 0.1679201
+    x: 2.63992
     y: 0
-    z: -0.612
+    z: -1.623
   rotation:
-    x: 0.5
-    y: -0.5
-    z: 0.5
-    w: -0.5
+    x: 0
+    y: 0
+    z: 0
+    w: 1
 

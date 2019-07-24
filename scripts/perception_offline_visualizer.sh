@@ -16,11 +16,18 @@
 # limitations under the License.
 ###############################################################################
 
-
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "${DIR}/apollo_base.sh"
-# run function from apollo_base.sh
-# run command_name module_name
-run perception "$@" --dag_config_path=/apollo/modules/perception/conf/dag_camera_obstacle_vis.config \
---alsologtostderr=1 --v=4
+
+if [ $# -ne 1 ] ; then
+   echo "usage $0 start/stop"
+   exit 1;
+fi
+
+cmd=$1
+
+cyber_launch $cmd /apollo/modules/perception/production/launch/perception_camera.launch
+cyber_launch $cmd /apollo/modules/perception/production/launch/perception_trafficlight_vis.launch
+cyber_launch $cmd /apollo/modules/drivers/tools/image_decompress/launch/image_decompress.launch
+cyber_launch $cmd /apollo/modules/transform/launch/static_transform.launch
