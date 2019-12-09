@@ -304,11 +304,16 @@ function main(){
 
     info "Starting docker container \"${APOLLO_DEV}\" ..."
 
-    DOCKER_CMD="nvidia-docker"
-    USE_GPU=1
-    if ! [ -x "$(command -v ${DOCKER_CMD})" ]; then
+    DOCKER_VERSION=$(docker version --format '{{.Client.Version}}' | cut -d'.' -f1)
+
+    if [[ $DOCKER_VERSION -ge "19" ]] && ! type nvidia-docker; then
         DOCKER_CMD="docker"
-        USE_GPU=0
+        USE_GPU=1
+        GPUS="--gpus all"
+    else
+        DOCKER_CMD="nvidia-docker"
+        USE_GPU=1
+        GPUS=""
     fi
 
     set -x
@@ -317,6 +322,7 @@ function main(){
         -d \
         --privileged \
         --name $APOLLO_DEV \
+        ${GPUS} \
         ${MAP_VOLUME_CONF} \
         ${OTHER_VOLUME_CONF} \
         -e DISPLAY=$display \
