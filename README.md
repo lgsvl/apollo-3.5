@@ -122,7 +122,7 @@ To launch apollo, first launch and enter a container as described in the previou
 * Open Apollo dreamview in a browser by navigating to: `localhost:8888`
     - Select the `Lincoln2017MKZ` vehicle and `BorregasAve` map in the top right corner.
     - Open the **Module Controller** tab (on the left bar).
-    - Enable **Localization**, **Transform**, **Perception**, **Traffic Light**, **Planning**, **Prediction**, **Routing**.
+    - Enable **Localization**, **Transform**, **Perception**, **Prediction**, **Routing**, **Planning**.
     - Navigate to the **Route Editing** tab.
     - Select a destination by clicking on a lane line and clicking **Submit Route**.
     - Enable **Control** in **Module Controller** tab.
